@@ -69,7 +69,8 @@ def main(argv):
     # Load the model and predict
     model = pickle.load(open('./xgb.sav', 'rb'))
     y_pred = model.predict(X_test_scaled)
-    print(f'f1 score: {f1_score(y_test, y_pred)}')
+    
+    # print(f'f1 score: {f1_score(y_test, y_pred)}')
 
     csv_df = pd.DataFrame({'id': ids, 'prediction': [int(y) for y in y_pred]})
     csv_df.to_csv('./prediction.csv', index=False)
